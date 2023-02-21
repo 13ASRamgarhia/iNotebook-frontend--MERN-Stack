@@ -9,7 +9,7 @@ const Feedback = () => {
   document.title = "Feedback - iNotebook"
 
   const context = useContext(noteContext)
-  const { darkMode, setProgress, endpoint } = context
+  const { endpoint } = context
   
   const [feedbackInput, setFeedbackInput] = useState({
     name:"", feedback:"", rating:0
@@ -47,6 +47,7 @@ const Feedback = () => {
         }
       })
       setFeedbackInput({name:"", feedback:"", rating:0})
+      handleShow()
     }
     catch(error){
       setErr(err.message)
