@@ -1,8 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Icon } from 'semantic-ui-react'
+import noteContext from "../Context/noteContext";
+import LoadingBar from 'react-top-loading-bar';
+import Cookies from 'universal-cookie';
 
 const Navbar = () => {
+  const context = useContext(noteContext)
+  const { navHeading, progress, setProgress } = context
+  let location = useLocation()
+  const cookies = new Cookies()
+  const navigate = useNavigate()
 
   const toggleHamburger = () => {
     document.getElementById("slideoverBG").classList.toggle("invisible");
@@ -12,17 +20,42 @@ const Navbar = () => {
     document.getElementById("slideover").classList.toggle("translate-x-full");
   }
 
-  return (
-    <div className='bg-navbarColor text-white flex flex-row sticky top-0 z-50 w-full'>
-      <div className="hamburger py-3 px-2">
+  const handleLogoutClick = () => {
+    setProgress(10)
+    cookies.remove('jwtToken', { path: '/' })
+    setProgress(60)
+    navigate("/")
+    setProgress(100)
+  }
+
+  return (<>
+    <LoadingBar
+    color='#e6ded3'
+    progress={progress}
+    onLoaderFinished={() => setProgress(0)}
+  />
+    <div className='bg-navbarColor text-white flex flex-row top-0 z-50 w-full justify-between laptop:h-14 desktop:h-20'>
+      <div className={"flex laptop:mx-4"}>
+      <div className="hamburger py-3 px-2 flex flex-col laptop:hidden">
         <button className="hamburgerBtn" onClick={toggleHamburger}>
-        <div className="bg-navbarText my-1 mx-1 h-1 w-6 rounded-lg"></div>
-        <div className="bg-navbarText my-1 mx-1 h-1 w-6 rounded-lg"></div>
-        <div className="bg-navbarText my-1 mx-1 h-1 w-4 rounded-lg"></div>
+        <div className="bg-navbarText my-1 desktop:my-1.5 mx-1 desktop:mx-1.5 h-1 desktop:h-1.5 w-6 desktop:w-8 rounded-lg"></div>
+        <div className="bg-navbarText my-1 desktop:my-1.5 mx-1 desktop:mx-1.5 h-1 desktop:h-1.5 w-6 desktop:w-8 rounded-lg"></div>
+        <div className="bg-navbarText my-1 desktop:my-1.5 mx-1 desktop:mx-1.5 h-1 desktop:h-1.5 w-4 desktop:w-6 rounded-lg"></div>
         </button>
       </div>
-      <div className="text-navbarText my-auto font-bold text-xl cursor-pointer">
-        <Link to="/" className='focus:text-navbarText hover:text-navbarText text-navbarText no-underline'>Notes</Link>
+      <div className="text-navbarText align-center my-auto font-bold text-xl cursor-pointer">
+        <p className='focus:text-navbarText hover:text-navbarText text-navbarText no-underline desktop:text-3xl'>{location.pathname === "/Notes" ? "Notes" : "iNotebook"}</p>
+      </div>
+      </div>
+      <div className="navItems text-navbarText align-center my-auto font-bold text-xl cursor-pointer laptop:mx-4 space-x-6 hidden laptop:flex">
+        <Link to="/About" className='focus:text-navbarText hover:scale-110 ease-linear duration-75 hover:text-navbarText text-navbarText no-underline desktop:text-3xl py-2 px-3'>About</Link>
+        <Link to="/Feedback" className='focus:text-navbarText hover:scale-110 ease-linear duration-75 hover:text-navbarText text-navbarText no-underline desktop:text-3xl py-2 px-3'>Feedback</Link>
+
+        {cookies.get('jwtToken', { path: '/' }) ? 
+        <button className='focus:text-navbarText hover:scale-110 ease-linear duration-75 hover:text-navbarText text-navbarText no-underline desktop:text-3xl py-2 px-3 border-2 border-navbarText' onClick={handleLogoutClick}>Logout</button>
+        :
+        <><Link to="/Login" className='focus:text-navbarText hover:text-navbarText text-navbarText no-underline desktop:text-3xl py-2 px-3 border-2 border-navbarText rounded-full'>Login</Link>
+        <Link to="/SignUp" className='focus:text-navbarColor bg-navbarText hover:text-navbarColor text-navbarColor no-underline desktop:text-3xl py-2 px-3 rounded-full'>Sign up</Link></>}
       </div>
 
       <div
@@ -88,6 +121,7 @@ const Navbar = () => {
           </div>
         </div>
     </div>
+    </>
   )
 }
 

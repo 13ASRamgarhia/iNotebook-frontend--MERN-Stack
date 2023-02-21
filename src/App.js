@@ -7,10 +7,12 @@ import Home from "./Components/Home";
 import Navbar from "./Components/Navbar";
 import Notes from "./Components/Notes";
 import NoteState from "./Context/NoteState";
+import Feedback from "./Components/Feedback";
+import About from "./Components/About";
 
 function App() {
   return (
-    <div className="App bg-bgColor min-w-screen min-h-screen">
+    <div className="App bg-bgColor min-w-screen min-h-screen w-screen h-screen">
       <NoteState>
       <Navbar />
 
@@ -20,6 +22,8 @@ function App() {
         <Route exact path="/SignUp" element={<Signup />} />
         <Route exact path="/Home" element={<Home />} />
         <Route exact path="/Notes" element={<Notes />} />
+        <Route exact path="/Feedback" element={<Feedback />} />
+        <Route exact path="/About" element={<About />} />
       </Routes>
 
       <Footer />

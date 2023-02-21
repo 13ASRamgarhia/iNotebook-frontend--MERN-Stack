@@ -2,10 +2,14 @@ import axios from 'axios';
 import React, { useState, useContext } from 'react';
 import noteContext from "../Context/noteContext";
 import Modal from 'react-bootstrap/Modal';
+import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
 
 function AddNoteModal() {
   const context = useContext(noteContext)
-  const { addNote } = context
+  const { endpoint, setProgress, notes, setNotes } = context
+  const cookies = new Cookies()
+  const navigate = useNavigate()
 
   const [show, setShow] = useState(false);
   const date = new Date();
@@ -14,12 +18,13 @@ function AddNoteModal() {
   const [newNote, setNewNote] = useState({
     title:"",
     description:"",
+    tag:"",
     date: noteDate
   })
   const [inputError, setInputError] = useState("")
 
   const handleClose = () => {
-    setNewNote({title:"", description:""})
+    setNewNote({title:"", description:"", tag:""})
     setInputError(" ")
     setShow(false);
   }
@@ -41,11 +46,37 @@ function AddNoteModal() {
             return setTimeout(() => {setInputError("")}, 1250)
         }
         
-        await axios.post("http://localhost:8800/newNote", newNote)
-        addNote()
-        setNewNote({title:"", description:""})
+        setProgress(10)
+        if(cookies.get('jwtToken', { path: '/' })){
+          await axios.post(`${endpoint}/api/newNote`, {
+            title: newNote.title,
+            description: newNote.description,
+            tag: newNote.tag
+          }, {
+            headers: {
+              "Content-Type": "application/json",
+              "auth-token": cookies.get('jwtToken', { path: '/' })
+            }
+          })
+        
+        setProgress(60)
+
+        const notesAfterAdding = await notes.concat(newNote)
+        await setNotes(notesAfterAdding)
+        setNewNote({title:"", description:"", tag:""})
         setInputError("Note added successfully")
         setTimeout(() => {setInputError(""); handleClose()}, 1250)
+        setProgress(100)
+
+        //window.location.reload()
+      }
+      else{
+        setNewNote({title:"", description:"", tag:""})
+        setInputError("Token deleted unexpectedly. Logging out now")
+        setTimeout(() => {setInputError(""); handleClose()}, 5000)
+        setTimeout(() => {navigate("/")}, 6000)
+        setProgress(100)
+      }
     }
     catch(err){
         console.log(err.message)
@@ -79,6 +110,8 @@ function AddNoteModal() {
                 <input type="text" name="title" id="titleId" value={newNote.title} onChange={handleInputChange} autoCapitalize='off' autoComplete='off' className="px-3 py-2 w-full text-lg text-navbarText bg-cardHeading focus:outline-none my-1 rounded-xl" placeholder='Title' />
 
                 <input type="text" name="description" id="descriptionId" value={newNote.description} onChange={handleInputChange} autoCapitalize='off' autoComplete='off' className="px-3 py-2 w-full text-lg text-navbarText bg-cardHeading focus:outline-none my-1 rounded-xl" placeholder='Description' />
+
+                <input type="text" name="tag" id="tag" value={newNote.tag} onChange={handleInputChange} autoCapitalize='off' autoComplete='off' className="px-3 py-2 w-full text-lg text-navbarText bg-cardHeading focus:outline-none my-1 rounded-xl" placeholder='Tag' />
 
                 <small className='text-base text-cardBody py-1'>{inputError}</small>
             </div>

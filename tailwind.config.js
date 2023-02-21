@@ -8,8 +8,7 @@ module.exports = {
       screens: {
         'tablet': '640px',  
         'laptop': '1024px',
-        'desktop': '1280px',
-        'HD': '1920px',
+        'desktop': '1920px',
       },
       colors: {
         transparent: "transparent",
