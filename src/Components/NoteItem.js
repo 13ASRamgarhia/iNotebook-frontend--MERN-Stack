@@ -1,6 +1,5 @@
 import React from 'react'
 import DeleteModal from './DeleteModal'
-import { Badge } from 'react-bootstrap'
 
 const NoteItem = (props) => {
     const {note} = props

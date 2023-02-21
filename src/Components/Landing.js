@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const Landing = () => {
-  //useEffect(() => {
   document.title = "iNotebook - Your notebook on cloud"
-  //}, [])
+
   return (
     <div>
       <div className="h-screen flex flex-col justify-center items-center -my-10 px-2">

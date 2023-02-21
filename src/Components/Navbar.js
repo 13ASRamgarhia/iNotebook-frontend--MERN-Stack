@@ -7,7 +7,7 @@ import Cookies from 'universal-cookie';
 
 const Navbar = () => {
   const context = useContext(noteContext)
-  const { navHeading, progress, setProgress } = context
+  const { progress, setProgress } = context
   let location = useLocation()
   const cookies = new Cookies()
   const navigate = useNavigate()
