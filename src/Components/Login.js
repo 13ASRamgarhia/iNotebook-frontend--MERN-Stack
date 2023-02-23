@@ -53,16 +53,6 @@ const Login = () => {
       const stringifiedResponse = JSON.stringify(response)
       setProgress(80)
       const userData = JSON.parse(stringifiedResponse)
-
-      console.log(userData)
-
-      // if(userData.data === "Invalid credentials"){
-      //   setErr(response)
-      //   setTimeout(() => {setErr("")}, 3000)
-      //   setProgress(100)
-      //   return
-      // }
-
       cookies.set('jwtToken', userData.data.token, { path: '/' });
       setProgress(100)
       navigate("/Notes")

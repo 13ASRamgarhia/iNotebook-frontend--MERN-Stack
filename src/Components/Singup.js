@@ -87,7 +87,7 @@ const Signup = () => {
 
     try {
       setProgress(10);
-      const res = await axios.post(`${endpoint}/api/signup`, {
+      await axios.post(`${endpoint}/api/signup`, {
         fullName: user.fullName,
         email: user.email,
         password: user.password,
@@ -97,16 +97,6 @@ const Signup = () => {
         }
       }
       );
-      setProgress(60)
-      console.log(res)
-      
-      if(res.data === "User already registered" || res === "Failed to register"){
-        setConfirmPasswordErr(res)
-        setTimeout(() => {setConfirmPasswordErr("")}, 3000)
-        setProgress(100)
-        return
-      }
-      
       setUser({ fullName: "", email: "", password: "", confirmPassword: "" });
       setProgress(100);
       handleShow();
