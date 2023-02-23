@@ -48,6 +48,7 @@ const Feedback = () => {
       })
       setFeedbackInput({name:"", feedback:"", rating:0})
       handleShow()
+      setTimeout(() => {handleClose()}, 3000)
     }
     catch(error){
       setErr(err.message)
@@ -63,13 +64,12 @@ const Feedback = () => {
         keyboard={false}
       >
         <div>
-          <div className='bg-cardColor px-4 py-4 rounded-t-xl'><p className='text-2xl desktop:text-3xl font-bold text-cardHeading'>Sign up successfull</p></div>
+          <div className='bg-cardColor px-4 py-4 rounded-t-xl'><p className='text-2xl desktop:text-3xl font-bold text-cardHeading'>Feedback submitted. Thank you</p></div>
         </div>
 
         <div className='bg-cardColor px-4 pb-4 rounded-b-xl space-x-3'>
             <div className='bg-cardColor px-4 pb-4 rounded-b-xl tablet:space-x-3 space-y-3 tablet:space-y-0 flex tablet:flex-row flex-col'>
               <button className='bg-cardHeading text-cardColor text-lg desktop:text-2xl  py-1 desktop:py-2 px-3 desktop:px-4 rounded-lg w-fit' onClick={handleClose}>Okay</button>
-              <button className='bg-navbarColor py-1 desktop:py-2 px-3 desktop:px-4 rounded-lg w-fit'><Link to="/Login" className="text-navbarText no-underline hover:no-underline hover:text-navbarText text-lg desktop:text-2xl">Move to login page</Link></button>
             </div>
         </div>
       </Modal>
