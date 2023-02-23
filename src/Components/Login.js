@@ -57,9 +57,10 @@ const Login = () => {
       if(userData === "Invalid credentials"){
         const data = response.json()
         setErr(data)
+        setProgress(100)
         setTimeout(() => {setErr("")}, 3000)
       }
-      
+
       cookies.set('jwtToken', userData.data.token, { path: '/' });
       setProgress(100)
       navigate("/Notes")
