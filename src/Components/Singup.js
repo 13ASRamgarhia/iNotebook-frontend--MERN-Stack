@@ -98,6 +98,7 @@ const Signup = () => {
       }
       );
       setProgress(60)
+      console.log(res)
       
       if(res === "User already registered" || res === "Failed to register"){
         setConfirmPasswordErr(res)
