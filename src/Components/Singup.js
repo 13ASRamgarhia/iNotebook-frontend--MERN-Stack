@@ -97,10 +97,13 @@ const Signup = () => {
         }
       }
       );
+      setProgress(60)
       
-      const data = res.json()
-      setConfirmPasswordErr(data)
-      setTimeout(() => {setConfirmPasswordErr("")}, 3000)
+      if(res === "User already registered" || res === "Failed to register"){
+        setConfirmPasswordErr(res)
+        setTimeout(() => {setConfirmPasswordErr("")}, 3000)
+        setProgress(100)
+      }
       
       setUser({ fullName: "", email: "", password: "", confirmPassword: "" });
       setProgress(100);
