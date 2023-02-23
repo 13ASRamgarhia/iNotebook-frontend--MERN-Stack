@@ -100,7 +100,7 @@ const Signup = () => {
       setProgress(60)
       console.log(res)
       
-      if(res === "User already registered" || res === "Failed to register"){
+      if(res.data === "User already registered" || res === "Failed to register"){
         setConfirmPasswordErr(res)
         setTimeout(() => {setConfirmPasswordErr("")}, 3000)
         setProgress(100)

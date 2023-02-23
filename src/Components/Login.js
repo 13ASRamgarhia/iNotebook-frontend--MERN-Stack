@@ -54,7 +54,7 @@ const Login = () => {
       setProgress(80)
       const userData = JSON.parse(stringifiedResponse)
 
-      if(userData === "Invalid credentials"){
+      if(userData.data === "Invalid credentials"){
         setErr(response)
         setTimeout(() => {setErr("")}, 3000)
         setProgress(100)
