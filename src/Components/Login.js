@@ -55,10 +55,10 @@ const Login = () => {
       const userData = JSON.parse(stringifiedResponse)
 
       if(userData === "Invalid credentials"){
-        const data = response.json()
-        setErr(data)
-        setProgress(100)
+        setErr(response)
         setTimeout(() => {setErr("")}, 3000)
+        setProgress(100)
+        return
       }
 
       cookies.set('jwtToken', userData.data.token, { path: '/' });

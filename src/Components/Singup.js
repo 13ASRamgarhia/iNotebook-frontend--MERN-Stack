@@ -103,6 +103,7 @@ const Signup = () => {
         setConfirmPasswordErr(res)
         setTimeout(() => {setConfirmPasswordErr("")}, 3000)
         setProgress(100)
+        return
       }
       
       setUser({ fullName: "", email: "", password: "", confirmPassword: "" });
