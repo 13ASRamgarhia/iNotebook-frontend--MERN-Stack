@@ -87,7 +87,7 @@ const Signup = () => {
 
     try {
       setProgress(10);
-      await axios.post(`${endpoint}/api/signup`, {
+      const res = await axios.post(`${endpoint}/api/signup`, {
         fullName: user.fullName,
         email: user.email,
         password: user.password,
@@ -97,6 +97,11 @@ const Signup = () => {
         }
       }
       );
+      
+      const data = res.json()
+      setConfirmPasswordErr(data)
+      setTimeout(() => {setConfirmPasswordErr("")}, 3000)
+      
       setUser({ fullName: "", email: "", password: "", confirmPassword: "" });
       setProgress(100);
       handleShow();
