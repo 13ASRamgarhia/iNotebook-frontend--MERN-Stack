@@ -37,7 +37,7 @@ function DeleteModal(props) {
   
         const notesAfterDeletion = notes.filter((note) => {return note._id !== props.note._id})
         setNotes(notesAfterDeletion)
-        //window.location.reload()
+        window.location.reload()
       }
       else{
         setErr("Token deleted unexpectedly. Logging out now")
