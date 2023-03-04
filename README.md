@@ -63,7 +63,7 @@ THE APP IS DEVELOPED USING MERN TECHNOLOGIES.
 
 ### Steps to run the app
 
-Anyone can use the app by clicking on the link provided at the top of this documentary.
+Anyone can use the app by clicking on the title (iNotebook) at the top of this documentary.
 If one wants to run this app on his local machine for developement purpose, he can freely download the source code and start the development.
 
 PRE-REQUISITE: VS Code, Node.js and proficiency in MERN Technologies
