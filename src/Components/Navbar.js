@@ -150,14 +150,14 @@ const Navbar = () => {
                 </div>
               </Link>
               {cookies.get("jwtToken", { path: "/" }) ? (
-                <Link
-                  to="/Logout"
-                  className="linkRouter no-underline hover:text-white hover:no-underline"
-                >
-                  <div className="HBContentItem text-white hover:text-navbarColor text-2xl text-center py-5 hover:bg-navbarText">
-                    Logout
-                  </div>
-                </Link>
+                <button
+                className="no-underline hover:text-white hover:no-underline m-auto w-full"
+                onClick={handleLogoutClick}
+              >
+                <div className="HBContentItem text-white hover:text-navbarColor text-2xl text-center py-5 hover:bg-navbarText">
+                     Logout
+                </div>
+              </button>
               ) : (
                 <>
                   <Link

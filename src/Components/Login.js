@@ -50,12 +50,21 @@ const Login = () => {
         }
       })
       setProgress(60)
-      const stringifiedResponse = JSON.stringify(response)
-      setProgress(80)
-      const userData = JSON.parse(stringifiedResponse)
-      cookies.set('jwtToken', userData.data.token, { path: '/' });
-      setProgress(100)
-      navigate("/Notes")
+      const statusCode = response.data.statusCode
+      if(statusCode === 200){
+        const stringifiedResponse = JSON.stringify(response)
+        setProgress(80)
+        const userData = JSON.parse(stringifiedResponse)
+        cookies.set('jwtToken', userData.data.token, { path: '/' });
+        setProgress(100)
+        navigate("/Notes")
+      }
+      else if(statusCode === 201){
+        setErr("Invalid email or password")
+        setProgress(100);
+        setTimeout(() => {setErr("")}, 6000)
+      }
+      
     }
     catch(err){
       setErr(err.message)
