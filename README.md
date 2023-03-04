@@ -1,14 +1,14 @@
-# iNotebook
+# [iNotebook](https://inotebook-cloud-notebook-app.netlify.app/)
 
 ### Getting Started
 
-**App Link**: https://inotebook-cloud-notebook-app.netlify.app/
-
 **iNotebook** is a React app which is developed using MERN Technologies. This is a cloud notebook app, which can be accessed by a device with internet connection. User needs to register in order start accessing the notes. Once user is registered, he/she can just login to his/her notebook and start writing. This app is using MongoDB to store the user data and their notes. User can add a new note and delete a note. For now, edit note functionality is not implemented in the app, that will be in future versions of the app.
 
-**This is frontend for the iNotebook app. Please follow the following link for backend for the app - https://github.com/13ASRamgarhia/iNotebook-backend--MERN-Stack**
+**This is frontend for the iNotebook app. Please follow the following link for backend for the app - [iNotebook backend](https://github.com/13ASRamgarhia/iNotebook-backend--MERN-Stack)**
 
-**CONTACT:** Feel free to contact on LinkedIn in case of any queries - https://www.linkedin.com/in/13asr/
+**CONTACT:** Feel free to contact on LinkedIn in case of any queries - [LinkedIn profile](https://www.linkedin.com/in/13asr/)
+
+**CLICK TITLE TO MOVE TO iNOTEBOOK APP**
 
 ### Available Scripts
 
