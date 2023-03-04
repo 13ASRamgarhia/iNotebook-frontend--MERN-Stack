@@ -1,27 +1,33 @@
 # iNotebook
 
-# Getting Started
+### Getting Started
 
-**iNotebook** is a React app which is developed using MERN Technologies
+**App Link**: https://inotebook-cloud-notebook-app.netlify.app/
 
-## Available Scripts
+**iNotebook** is a React app which is developed using MERN Technologies. This is a cloud notebook app, which can be accessed by a device with internet connection. User needs to register in order start accessing the notes. Once user is registered, he/she can just login to his/her notebook and start writing. This app is using MongoDB to store the user data and their notes. User can add a new note and delete a note. For now, edit note functionality is not implemented in the app, that will be in future versions of the app.
+
+**This is frontend for the iNotebook app. Please follow the following link for backend for the app - https://github.com/13ASRamgarhia/iNotebook-backend--MERN-Stack**
+
+**CONTACT:** Feel free to contact on LinkedIn in case of any queries - https://www.linkedin.com/in/13asr/
+
+### Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+`npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) by default to view it in your browser. You can change port by making changes in the start script.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+`npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+`npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -31,7 +37,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+`npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
@@ -41,32 +47,27 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### Technologies used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+THE APP IS DEVELOPED USING MERN TECHNOLOGIES.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> `React` (Javascript framework) is used to design frontend for the app.
 
-### Code Splitting
+> `Tailwind` and `React bootstrap` is used for styling the components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+> This is a Single Page Application. App routing is implemented using `react-router-dom` package.
 
-### Analyzing the Bundle Size
+> To enhance the design, `Material UI` and `Semantic UI` are used.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+> `universal-cookies` package is used for accessing cookies, which is used in login/logout functionality.
 
-### Making a Progressive Web App
+### Steps to run the app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Anyone can use the app by clicking on the link provided at the top of this documentary.
+If one wants to run this app on his local machine for developement purpose, he can freely download the source code and start the development.
+PRE-REQUISITE: VS Code, Node.js and proficiency in MERN Technologies
 
-### Advanced Configuration
+Note: If you recently installed Node.js, I would recommend you to restart your pc.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+After downloading the app, open it in VS Code and type `npm install` in in-built cmd. This will install all necessary dependencies to run the app.
+Once all dependecies are installed, run start command `npm start` to run app in development mode.
