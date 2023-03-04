@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# iNotebook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Getting Started
+
+**iNotebook** is a React app which is developed using MERN Technologies
 
 ## Available Scripts
 
