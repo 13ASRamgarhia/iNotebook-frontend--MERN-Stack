@@ -68,7 +68,7 @@ function AddNoteModal() {
         setTimeout(() => {setInputError(""); handleClose()}, 1250)
         setProgress(100)
 
-        //window.location.reload()
+        window.location.reload()
       }
       else{
         setNewNote({title:"", description:"", tag:""})
